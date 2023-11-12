@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Kiara María Orellana Yón">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=DM+Serif+Display:ital@1&family=Noto+Serif&family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Create new account</title>
+</head>
+<body>
+    <header class="header">
+        <span class="logo-name-index">YON'S</span>
+    </header>
+    <h1 class="title__cna">Create new account</h1>
+    <div class="container__cna">
+        <form class="form__new--account" action="home.html" method="">
+            <label class="label name" for="nombre">Name</label>
+            <input class="input__name" type="text" id="name" name="nombre" required>
+            
+            <label class="label email" for="correo">Email</label>
+            <input class="input__email" type="email" id="email" name="correo" required>
+            
+            <label class="label password" for="contraseña">Password</label>
+            <input class="input__password" type="password" id="password" name="contrasena" required>
+            <button type="button" id="togglePass">Show</button>
+            
+            <label class="label conf--pass" for="confirmar_contrasena">Confirm password</label>
+            <input class="input__conf--pass" type="password" id="confirmar_contrasena" name="confirmar_contrasena" required>
+            <button type="button" id="toggleConfirmPassword">Show</button>
+            
+            
+            <input class="input__submit" type="submit" value="Register">
+            <a href="index.html" class="link-return">Return to login</a>
+        </form>
+    </div>
+</body>
+</html>
+
+<script>
+    const togglePasswordButton = document.getElementById("togglePass");
+    const toggleConfirmPasswordButton = document.getElementById("toggleConfirmPassword");
+    const passwordField = document.getElementById("password");
+    const confirmPasswordField = document.getElementById("confirmar_contrasena");
+
+    // Botones de Hide y Show password
+    togglePasswordButton.addEventListener("click", function () {
+        if (passwordField.type === "password") {
+            passwordField.type = "text";
+            togglePasswordButton.textContent = "Hide";
+        } else {
+            passwordField.type = "password";
+            togglePasswordButton.textContent = "Show";
+        }
+    });
+
+    toggleConfirmPasswordButton.addEventListener("click", function () {
+        if (confirmPasswordField.type === "password") {
+            confirmPasswordField.type = "text";
+            toggleConfirmPasswordButton.textContent = "Hide";
+        } else {
+            confirmPasswordField.type = "password";
+            toggleConfirmPasswordButton.textContent = "Show";
+        }
+    });
+
+    // Validación para que las contraseñas sean las mismas
+    // Agrega un event listener al formulario para manejar la validación antes de enviar
+    const form = document.querySelector("form.form__new--account");
+    form.addEventListener("submit", function (event) {
+        // Compara los valores de los campos de contraseña y confirmación
+        if (passwordField.value !== confirmPasswordField.value) {
+            // Si no coinciden, evita que el formulario se envíe y muestra un mensaje de error
+            event.preventDefault();
+            alert("Passwords do not match. Try again.");
+        }else{
+            // Redirecciona al usuario a la página "home.html" después de guardar los datos
+            // Obtiene los valores de los campos del formulario
+            const name = document.querySelector('#name').value;
+            const email = document.querySelector('#email').value;
+            const password = document.querySelector('#password').value;
+
+            // Crea un objeto userData con los valores del formulario
+            const userData = {
+                name: name,
+                email: email,
+                password: password
+            };
+
+            // Recupera la lista actual de datos de usuarios de localStorage (si existe)
+            const userList = JSON.parse(localStorage.getItem('userList')) || [];
+
+            // Agrega el nuevo conjunto de datos a la lista
+            userList.push(userData);
+
+            // Convierte la lista a JSON y almacénala en localStorage
+            localStorage.setItem('userList', JSON.stringify(userList));
+
+            alert("Successful registration!. We welcome you to YON'S.");
+            // Redirige al usuario a la página de visualización de datos
+            // window.location.href = 'saved-accounts.html';
+            window.location.href = 'home.html';
+            }
+        });     
+
+</script>

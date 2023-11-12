@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Kiara María Orellana Yón">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New notes</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=DM+Serif+Display:ital@1&family=Noto+Serif&family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <div class="navbar">
+        <span class="logo-name">YON'S</span>
+        <a class="link-nav-bar" href="#contacto">Contact</a>
+        <a class="link-nav-bar" href="#servicios">Service</a>
+        <a class="link-nav-bar" href="about-us.html">About us</a>
+        <a class="link-nav-bar" href="home.html">Home</a>
+    </div>
+
+
+    <!-- Contenido principal -->
+    <h1 class="title__new-notes">Add new notes</h1>
+    <div class="container-new-notes">
+        <form class="form-new-notes" action="saved-notes.html" method="" onsubmit="return validarFormulario()">
+            <label class="label-title" for="titulo">Title</label>
+            <input class="input-title" type="text" id="titulo" name="titulo">
+            
+            <label class="label-description" for="description">Description</label>
+            <textarea id="description" name="description" rows="4" cols="50"></textarea><br>
+            
+            <div class="container-date">
+                <label class="label-date" for="calendario">Calendar</label>
+                <input class="input-date" type="date" id="calendario" name="calendario">
+            </div>
+
+            <div class="container-fin">
+                <label class="label-fin" for="finalizado">Finished work</label>
+                <input class="input-checkbox" type="checkbox" id="finalizado" name="finalizado">
+            </div>
+            <input class="btn-save" type="submit" value="Save note" onclick="guardarDocumento()">
+            <div class="container-favorite">
+                <button class="btn-favorite" type="button" id="favoriteButton" onclick="toggleFavorite()">
+                    <span class="heart-icon">&#10084;</span> Favorite
+                </button>
+            </div>        
+        </form>
+    </div>
+
+</body>
+</html>
+<script>
+    // Lógica de la barra lateral
+    function toggleSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+
+    sidebar.classList.toggle('sidebar-open');
+}
+
+// Lógica para guardar el formulario
+function guardarDocumento() {
+    var titulo = document.getElementById("titulo").value;
+    var description = document.getElementById("description").value;
+    var calendario = document.getElementById("calendario").value;
+    var finalizado = document.getElementById("finalizado").checked;
+
+    if (titulo.trim() === "" || description.trim() === "" || calendario.trim() === "") {
+        alert("Por favor, completa todos los campos antes de guardar.");
+        return;
+    }
+
+    // Crear un objeto para representar la nota
+    var nota = {
+        titulo: titulo,
+        descripcion: description,
+        fecha: calendario,
+        finalizado: finalizado
+    };
+
+    // Obtener las notas guardadas desde localStorage o inicializar un array vacío
+    var notasGuardadas = JSON.parse(localStorage.getItem('notas')) || [];
+
+    // Agregar la nueva nota al array de notas guardadas
+    notasGuardadas.push(nota);
+
+    // Guardar el array actualizado en localStorage
+    localStorage.setItem('notas', JSON.stringify(notasGuardadas));
+
+    // Limpiar los campos del formulario después de guardar
+    document.getElementById("titulo").value = "";
+    document.getElementById("description").value = "";
+    document.getElementById("calendario").value = "";
+    document.getElementById("finalizado").checked = false;
+
+
+    alert("Nota guardada exitosamente.");
+
+}
+
+// Lógica para el botón "Favorito" y guardar el formulario en important-notes.html
+var isFavorite = false;
+
+function toggleFavorite() {
+    var favoriteButton = document.getElementById("favoriteButton");
+    var heartIcon = document.querySelector(".heart-icon");
+
+    if (!isFavorite) {
+        heartIcon.style.color = "red";
+        isFavorite = true;
+    } else {
+        heartIcon.style.color = "white"; 
+        isFavorite = false;
+    }
+
+    // Agrega esta parte para redirigir y guardar el formulario si es favorito
+    if (isFavorite) {
+            var titulo = document.getElementById("titulo").value;
+            var description = document.getElementById("description").value;
+            var calendario = document.getElementById("calendario").value;
+            var finalizado = document.getElementById("finalizado").checked;
+            var favorito = document.getElementById("favoriteButton").click;
+            
+
+            if (titulo.trim() === "" || description.trim() === "" || calendario.trim() === "") {
+                alert("Por favor, completa todos los campos antes de guardar.");
+                return;
+            }
+
+            // Crear un objeto para representar la nota
+            var nota = {
+                titulo: titulo,
+                descripcion: description,
+                fecha: calendario,
+                finalizado: finalizado,
+                favoriteButton: favorito
+            };
+
+            // Obtener las notas guardadas desde localStorage o inicializar un array vacío
+            var notasImportantGuardadas = JSON.parse(localStorage.getItem('notasImportantes')) || [];
+
+            // Agregar la nueva nota al array de notas guardadas
+            notasImportantGuardadas.push(nota);
+
+            // Guardar el array actualizado en localStorage
+            localStorage.setItem('notasImportantes', JSON.stringify(notasImportantGuardadas));
+
+            document.getElementById("titulo").value = "";
+            document.getElementById("description").value = "";
+            document.getElementById("calendario").value = "";
+            document.getElementById("finalizado").checked = false;
+            document.getElementById("favoriteButton").click = false;
+
+            alert("Nota guardada exitosamente.");
+
+            // Redirigir al usuario a important-notes.html
+            window.location.href = 'important-notes.html';
+        }
+
+}
+
+</script>

@@ -1,0 +1,1007 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+
+/* INDEX */
+.container {
+    display: flex;
+    margin: 25px auto;
+    width: 800px;
+    height: 500px;
+    background-color: inherit;
+    /* background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
+}
+
+.container__welcome {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 50px 25px;
+    width: 300px;
+    height: 400px;
+}
+
+h1 {
+    color: #333;
+}
+
+h2 {
+    margin-top: 30px;
+    color: #333;
+}
+
+#formulario {
+    display: inline-block;
+    position: absolute;
+    margin: 50px 350px;
+    width: 400px;
+    height: 400px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, .5);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    margin-left: 40px;
+    text-align: justify;
+    font-weight: bold;
+    font-size: 0.8em;
+}
+
+input[type="text"],
+input[type="password"] {
+    margin-bottom: 15px;
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.password-input button {
+    position: absolute;
+    width: 40px;
+    height: 15px;
+    bottom: 220px;
+    left: 320px;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: .8em;
+    color: #007bff;
+    outline: none;
+}
+
+input[type="submit"] {
+    margin-top: 25px;
+    margin-bottom: 60px;
+    padding: .5em 50px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 0.5em;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #6baef5;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.link {
+    text-decoration: none;
+    font-size: .8em;
+}
+
+/* CREATE NEW ACCOUNT */
+
+.container-cna{
+    background-color: #007bff;
+}
+
+.title__cna {
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.form__new--account {
+    text-align: center;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, .5);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.label {
+    display: block;
+    margin-bottom: 5px;
+    margin-left: 10px;
+}
+
+#name,
+#email,
+#password,
+#confirmar_contrasena{
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.input__submit{
+    background-color: #6baef5;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.input__submit:hover{
+    background-color: #6baef5;
+}
+
+.link-return{
+    width: 100px;
+    margin: 5px auto;
+    display: block;
+    text-decoration: none;
+    font-size: .8em;
+}
+
+#togglePass{
+    position: absolute;
+    bottom: 310px;
+    left: 815px;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: .8em;
+    color: #007bff;
+    outline: none;
+}
+
+#toggleConfirmPassword{
+    position: absolute;
+    bottom: 228px;
+    left: 815px;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: .8em;
+    color: #007bff;
+    outline: none;
+}
+
+/* HOME */
+
+/* Barra de navegación */
+
+.navbar {
+    background-color: #333; 
+    overflow: hidden; 
+    background-color: rgba(255, 255, 255, .5);
+}
+
+.logo-name{
+    margin-top: 10px;
+    margin-left: 10px;
+    float: left;
+    display: block; 
+    color: #333; 
+    text-align: center; 
+    text-decoration: none;
+    font-family: 'Cinzel', serif;
+    font-size: 1.5em;
+}
+
+.header{
+    width: 100%;
+    height: 40px;
+    margin-bottom: 0;
+
+}
+
+.header span{
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
+.logo-name-index{
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 1.5em;
+}
+
+.navbar a {
+    float: right; 
+    display: block; 
+    color: #333; 
+    text-align: center; 
+    padding: 14px 16px; 
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: rgba(5, 5, 5, .5);
+    color: black;
+}
+
+/* Barra lateral */
+
+.container-bar {
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar {
+    width: 180px;
+    height: 100%;
+    background-color: rgba(255, 255, 255, .5);
+    color: #333;
+    overflow-x: hidden;
+    transition: 0.3s;
+    position: fixed;
+    left: -150px;
+    top: 46px;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24;
+}
+
+.sidebar-toggle {
+    margin-left: 85%;
+    margin-top: 5%;
+    background-color: rgba(255, 255, 255, .0);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.sidebar-content {
+    padding-top: 60px;
+}
+
+.sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar a:hover {
+    background-color: rgba(5, 5, 5, .5);
+    color: black;
+}
+
+.sidebar-open {
+    margin-left: 150px;
+}
+
+/* Contenido principal */
+.container-main{
+    overflow: hidden;
+    width: 900px;
+    height: 500px;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(255, 255, 255, .5);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+}
+
+/* Parte superior de los botones */
+.up{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50%;
+}
+
+.btn-new-notes{
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.btn-notes{
+    overflow: hidden;
+    margin-left: 50px;
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.btn-important{
+    overflow: hidden;
+    margin-left: 50px;
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Parte inferior de los botones */
+.down{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50%;
+}
+
+.btn-calendar{
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.btn-about-us{
+    overflow: hidden;
+    margin-left: 50px;
+    width: 200px;
+    height: 200px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.link-image{
+    width: 40%;
+    height: 50%;
+    text-decoration: none;
+} 
+
+.link-image:hover{
+    width: 50%;
+    height: 60%;
+    transition: .2s ease-out;
+} 
+
+.link-image img{
+    width: 100%;
+    height: 100%;
+}
+
+.btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    width: 100%;
+    height: 75%;
+}
+
+.description{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(238,174,202,.4);
+    width: 100%;
+    height: 25%;
+}
+
+.description a{
+    font-weight: bold;
+    font-size: 1em;
+    color: #333;
+    text-decoration: none;
+}
+
+/* Apartado "Nuevas notas" */
+.title__new-notes {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.container-new-notes{
+    width: 70%;
+    height: 100%;
+    margin: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, .5);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.form-new-notes {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.label-title,
+.label-description{
+    width: 80%;
+    display: inline-block;
+    margin-bottom: 5px;
+    margin-left: 20px;
+    font-weight: bold;
+    font-size: 0.8em;
+}
+
+.input-title{
+    width: 80%;
+    margin-bottom: 15px;
+    margin-left: 20px;
+    padding: 10px;
+    font-family: sans-serif;
+    font-size: .8em;
+    border: 1px solid rgba(238,174,202,1);
+    border-radius: 3px;
+}
+
+.input-title:hover{
+    outline: 1.5px solid rgba(238,174,202,1);
+}
+
+#description{
+    width: 80%;
+    height: 400px;
+    margin-left: 20px;
+    margin-bottom: 15px;
+    padding: 10px;
+    resize: none;
+    font-family: sans-serif;
+    font-size: .8em;
+    border: 1px solid rgba(238,174,202,1);
+    border-radius: 3px;
+}
+
+#description:hover{
+    outline: 1.5px solid rgba(238,174,202,1);
+}
+
+.container-date{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 80%;
+    height: 25px;
+    margin-left: 102px;
+    margin-bottom: 15px;
+}
+
+.label-date{
+    margin-left: 0;
+    width: 60px;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 0.8em;
+}
+
+.input-date {
+    font-weight: bold;
+    padding: 5px;
+    font-size: 1em;
+    border: 2px solid #ccc;
+    border-radius: .5em;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input-date:focus {
+    border-color: rgba(238,174,202,1);
+}
+
+.input-date::placeholder {
+    color: #999;
+}
+
+.container-fin{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 80%;
+    height: 25px;
+    margin-left: 102px;
+    margin-bottom: 20px;
+}
+
+.label-fin{
+    margin-left: 0;
+    width: 87px;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 0.8em;
+}
+.input-checkbox {
+    width: 15px;
+    margin-top: 10px;
+    font-weight: bold;
+    height: 25px;
+}
+
+.btn-save {
+    padding: .5em 50px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 0.5em;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.btn-save:hover {
+    background-color: #6baef5;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilos para el botón de favorito */
+.container-favorite {
+    text-align: center;
+    margin-top: -15px;
+}
+
+.btn-favorite {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: auto;
+}
+
+.heart-icon {
+    color: white; 
+    font-size: 24px;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+/* Apartado "saved-notes" */
+
+.container_saved-notes{
+    margin: 0 auto;
+    width: 80%;
+    height: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: rgba(255, 255, 255, .5);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.title__saved-notes {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+/* Estilos para el contenedor de notas */
+#saved-notes {
+    width: 80%;
+    margin-top: 20px;
+    margin: auto;
+    padding: 10px;
+    /* border: 1px solid #ccc; */
+    /* background-color: #f9f9f9; */
+
+    font-family: sans-serif;
+    font-size: 1em;
+    border: 1px solid rgba(238,174,202,1);
+    border-radius: 3px;
+}
+
+/* Estilos para las notas individuales */
+.saved-note {    
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+}
+
+/* Estilos para las casillas de verificación de notas */
+.nota-checkbox {
+    margin-left: 97%;
+}
+
+label h2{
+    margin-top: 0;
+}
+
+label[for^="checkbox"]{
+    margin-left: 10px;   
+    margin-right: 10px;
+}
+
+.btn-kill{
+    display: flex;
+    justify-content: right;
+    position: sticky;
+    width: 100%;
+    height: 50px;
+    margin-top: -25px;
+    margin-bottom: 5px;
+    /* margin-left: -1020px; */
+    margin-left: -75.5%;
+}
+
+/* Estilos para el botón "Borrar Notas Seleccionadas" */
+#borrarSeleccionadas {
+    margin-top: 20px;
+    padding: .5em 20px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 0.5em;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+#borrarSeleccionadas:hover {
+    background-color: #6baef5;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Apartado "Calendar" */
+.calendar {
+    margin: 25px auto;
+    width: 70%;
+    height: 470px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: rgba(255, 255, 255, .5);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.header-calendar {
+    display: flex;
+    justify-items: center;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: -20px;
+}
+
+#prevMonth,
+#nextMonth,
+#today {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    width: 100px;
+    height: 35px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 0.5em;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+#prevMonth:hover,
+#nextMonth:hover,
+#today:hover {
+    background-color: #6baef5;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+table {
+    width: 100%;
+    height: 300px;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+td {
+    cursor: pointer;
+}
+
+td:hover {
+    background-color: #f2f2f2;
+}
+
+/* Agregamos una clase para resaltar las fechas */
+.selected-date {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.selected-date:focus{
+    background-color: #fff;
+    color: black;
+}
+
+#today{
+    float: left;
+    margin-top: 25px;
+}
+
+/* Apartado "About us" */
+.title-about-us{
+    margin-top: 25px;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.container__about-us{
+    margin: 25px auto;
+    width: 80%;
+    height: 800px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.up-as{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    width: 100%;
+    height: 50%;
+    margin-top: -15px;
+}
+
+.img-kiara{
+    display: inline-block;
+    width: 344px;
+    height: 350px;
+    margin-left: 20px;
+    margin-right: -20px;
+    border-radius: .7em;
+}
+
+.container-paragraph h2{
+    font-size: 1.3em;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.container-paragraph{
+    display: inline-block;
+    width: 575px;
+    line-height: 1.5;
+    padding: 0 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, .5);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    font-family: 'Roboto', sans-serif;
+}
+
+.down-as{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    width: 100%;
+    height: 50%;
+}
+
+.container-paragraph-vision h2{
+    font-size: 1.3em;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+.img-kiara-programing{
+    display: inline-block;
+    width: 285px;
+    height: 350px;
+    margin-left: -20px;
+    margin-right: 20px;
+    border-radius: .7em;
+}
+
+.container-paragraph-vision{
+    z-index: 1;
+    display: inline-block;
+    width: 575px;
+    line-height: 1.5;
+    padding: 0 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, .5);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    font-family: 'Roboto', sans-serif;
+}
+
+
+/* Estilos para el footer */
+.footer {
+    /* background-color: #333; */
+    background-color: rgba(255, 255, 255, .5);
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Estilos para los íconos de redes sociales */
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icon {
+    display: inline-block;
+    margin: 0 10px;
+    text-decoration: none;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+}
+
+.social-icon img {
+    width: 30px; /* Tamaño de los íconos de redes sociales */
+    height: 30px;
+    vertical-align: middle;
+}
+
+/* Estilos para los íconos de redes sociales al pasar el cursor sobre ellos */
+.social-icon:hover {
+    opacity: 0.5;
+}
+
+/* Estilos para las cuentas almacenadas */
+
+#display-data {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.user-data {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+.subtitle-data {
+    color: #333;
+    font-size: 18px;
+    margin: 0;
+}
+
+.p-data {
+    margin: 0;
+    color: #666;
+}
+
+.delete-button {
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.delete-button:hover {
+    background-color: #d32f2f;
+}
+
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        width: 100%;
+        height: 65vh;
+    }
+
+    .container__cna{
+        flex-direction: column;
+        width: 100%;
+        height: 60vh;
+    }
+
+    #formulario {
+        position: static;
+        margin: 120px auto;
+        width: 90%;
+        padding-bottom: 30px;
+    }
+    
+    .container__welcome {
+        margin-top: 5px;
+        text-align: center;
+        width: 80%;
+        height: auto;
+    }
+
+    .password-input button {
+        position: absolute;
+        bottom: 440px;
+        left: 310px;
+        padding: 0;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: .8em;
+        color: #007bff;
+        outline: none;
+    }
+
+    #togglePass{
+        position: absolute;
+        bottom: 494px;
+        left: 350px;
+        padding: 0;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: .8em;
+        color: #007bff;
+        outline: none;
+    }
+
+    #toggleConfirmPassword{
+        position: absolute;
+        bottom: 413px;
+        left: 350px;
+        padding: 0;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: .8em;
+        color: #007bff;
+        outline: none;
+    }
+
+    .btn-kill{
+        margin-left: -43%;
+    }
+
+    .navbar a {
+        font-size: .9em;
+    }
+}

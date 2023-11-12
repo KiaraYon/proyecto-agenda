@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Kiara María Orellana Yón">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=DM+Serif+Display:ital@1&family=Noto+Serif&family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <div class="navbar">
+        <span class="logo-name">YON'S</span>
+        <a class="link-nav-bar" href="#MiCuenta">Account</a>
+        <a class="link-nav-bar" href="index.html">Sign off</a>
+        <a class="link-nav-bar" href="#servicios">Service</a>
+        <a class="link-nav-bar" href="about-us.html">About us</a>
+    </div>
+
+    <!-- Barra lateral -->
+    <div class="container-bar">
+        <div class="sidebar">
+            <button class="sidebar-toggle" onclick="toggleSidebar()">
+                <span class="material-symbols-outlined">
+                    menu
+                </span>
+            </button>
+            <div class="sidebar-content">
+                <a href="#">Service</a>
+                <a href="#">Products</a>
+                <a href="about-us.html">Contact</a>
+                <a href="#">Settings</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="container-main">
+        <div class="up">
+            <div class="btn-new-notes">
+                <div class="btn">
+                    <a class="link-image" href="new-notes.html">
+                        <img src="assets/images/notas.png" alt="new note image">
+                    </a>
+                </div>
+                <div class="description">
+                    <a href="new-notes.html">New Note</a>
+                </div>
+            </div>
+            <div class="btn-notes">
+                <div class="btn">
+                    <a class="link-image" href="saved-notes.html">
+                        <img src="assets/images/my-notes.png" alt="notes image">
+                    </a>
+                </div>
+                <div class="description">
+                    <a href="saved-notes.html">My Notes</a>
+                </div>
+            </div>
+            <div class="btn-important">
+                <div class="btn">
+                    <a class="link-image" href="important-notes.html">
+                        <img src="assets/images/important-notes.png" alt="important note image">
+                    </a>
+                </div>
+                <div class="description">
+                    <a href="important-notes.html">Important Notes</a>
+                </div>
+            </div>
+        </div>
+        <div class="down">
+            <div class="btn-calendar">
+                <div class="btn">
+                    <a class="link-image" href="calendar.html">
+                        <img src="assets/images/calendario.png" alt="calendar image">
+                    </a>
+                </div>
+                <div class="description">
+                    <a href="calendar.html">Calendar</a>
+                </div>
+            </div>
+            <div class="btn-about-us">
+                <div class="btn">
+                    <a class="link-image" href="about-us.html">
+                        <img src="assets/images/empresa.png" alt="about us image">
+                    </a>
+                </div>
+                <div class="description">
+                    <a href="about-us.html">About us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    function toggleSidebar() {
+    const sidebar = document.querySelector('.sidebar');
+
+    sidebar.classList.toggle('sidebar-open');
+}
+
+</script>

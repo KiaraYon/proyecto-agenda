@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Kiara María Orellana Yón">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=DM+Serif+Display:ital@1&family=Noto+Serif&family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Calendar</title>
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <div class="navbar">
+        <span class="logo-name">YON'S</span>
+        <a class="link-nav-bar" href="#contacto">Contact</a>
+        <a class="link-nav-bar" href="#servicios">Service</a>
+        <a class="link-nav-bar" href="about-us.html">About us</a>
+        <a class="link-nav-bar" href="home.html">Home</a>
+    </div>
+
+
+    <div class="calendar">
+        <div class="header-calendar">
+            <button id="prevMonth">Anterior</button>
+            <h2 id="monthYear"></h2>
+            <button id="nextMonth">Siguiente</button>
+            <!-- <button id="today">Hoy</button> -->
+        </div>
+        <table id="calendarTable">
+            <thead>
+                <tr>
+                    <th>Domingo</th>
+                    <th>Lunes</th>
+                    <th>Martes</th>
+                    <th>Miércoles</th>
+                    <th>Jueves</th>
+                    <th>Viernes</th>
+                    <th>Sábado</th>
+                </tr>
+            </thead>
+            <tbody id="calendarBody">
+                
+            </tbody>
+        </table>
+        <button id="today">Hoy</button>
+    </div>
+</body>
+</html>
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+    const prevMonthButton = document.getElementById("prevMonth");
+    const nextMonthButton = document.getElementById("nextMonth");
+    const todayButton = document.getElementById("today"); // Obtenemos el botón "Hoy"
+    const monthYearElement = document.getElementById("monthYear");
+    const calendarBody = document.getElementById("calendarBody");
+
+    function goToToday() {
+        currentDate = new Date(); // Restablecemos la fecha actual
+        renderCalendar();
+    }
+
+    todayButton.addEventListener("click", goToToday); // Agregamos un evento al botón "Hoy"
+
+    let currentDate = new Date();
+
+    function renderCalendar() {
+        const firstDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+        const lastDayOfMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
+
+        monthYearElement.innerText = `${firstDayOfMonth.toLocaleString("default", { month: "long" })} ${currentDate.getFullYear()}`;
+
+        let html = "";
+        let dayCounter = 1;
+
+        for (let i = 0; i < 6; i++) {
+            html += "<tr>";
+
+            for (let j = 0; j < 7; j++) {
+                if (i === 0 && j < firstDayOfMonth.getDay()) {
+                    html += "<td></td>";
+                } else if (dayCounter <= lastDayOfMonth.getDate()) {
+                    html += `<td>${dayCounter}</td>`;
+                    dayCounter++;
+                } else {
+                    html += "<td></td>";
+                }
+            }
+
+            html += "</tr>";
+        }
+
+        calendarBody.innerHTML = html;
+    }
+
+    renderCalendar();
+
+    prevMonthButton.addEventListener("click", function () {
+        currentDate.setMonth(currentDate.getMonth() - 1);
+        renderCalendar();
+    });
+
+    nextMonthButton.addEventListener("click", function () {
+        currentDate.setMonth(currentDate.getMonth() + 1);
+        renderCalendar();
+    });
+
+
+
+    let selectedDate = null; // Variable para almacenar la fecha seleccionada
+
+    function selectDate(event) {
+        const selectedCell = event.target;
+        const selectedDay = selectedCell.innerText;
+
+        // Desmarca la fecha previamente seleccionada (si la hay)
+        if (selectedDate) {
+            selectedDate.classList.remove("selected-date");
+        }
+
+        // Resalta la fecha seleccionada
+        selectedCell.classList.add("selected-date");
+
+        // Actualiza la fecha seleccionada
+        selectedDate = selectedCell;
+
+        // Puedes hacer algo con la fecha seleccionada, como mostrarla en otro lugar
+        console.log(`Fecha seleccionada: ${selectedDay}/${currentDate.getMonth() + 1}/${currentDate.getFullYear()}`);
+    }
+
+    calendarBody.addEventListener("click", selectDate);
+
+
+
+    function highlightToday() {
+        const today = new Date();
+        const todayDate = today.getDate();
+        const days = calendarBody.getElementsByTagName("td");
+
+        for (let i = 0; i < days.length; i++) {
+            const cell = days[i];
+            const cellDate = parseInt(cell.innerText);
+
+            if (!isNaN(cellDate) && cellDate === todayDate) {
+                // Resalta la fecha actual
+                cell.classList.add("selected-date");
+            } else {
+                // Desmarca otras fechas
+                cell.classList.remove("selected-date");
+            }
+        }
+    }
+
+    todayButton.addEventListener("click", function () {
+        // Llama a la función para resaltar la fecha actual
+        highlightToday();
+    });
+
+
+});
+
+
+
+</script>

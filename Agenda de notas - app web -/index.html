@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Kiara María Orellana Yón">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=DM+Serif+Display:ital@1&family=Noto+Serif&family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <span class="logo-name-index">YON'S</span>
+    </header>
+    <div class="container">
+        <div class="container__welcome">
+            <h1>Welcome to your diary virtual</h1>
+        </div>
+        
+        <div class="container__login" id="formulario">
+            <h2>LOGIN</h2>
+            <form action="home.html" method="">
+                <label for="usuario">User</label>
+                <input type="text" id="usuario" name="usuario" required>
+                <label for="contrasena">Password</label>
+                <div class="password-input">
+                    <input type="password" id="contrasena" name="contrasena" required>
+                    <button class="btn-show" type="button" id="togglePassword">Show</button>
+                </div>
+                <input type="submit" value="Login">
+            </form>
+            <a href="create-new-account.html" class="link">Create new account</a>
+        </div>
+    </div>
+
+<script>
+    const togglePasswordButton = document.getElementById('togglePassword');
+    const passwordInput = document.getElementById('contrasena');
+
+    togglePasswordButton.addEventListener('click', function () {
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            togglePasswordButton.textContent = 'Hide';
+        } else {
+            passwordInput.type = 'password';
+            togglePasswordButton.textContent = 'Show';
+        }
+    });
+</script>
+
+
+</body>
+</html>

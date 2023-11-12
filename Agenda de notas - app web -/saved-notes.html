@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Kiara María Orellana Yón">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=DM+Serif+Display:ital@1&family=Noto+Serif&family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Saved notes</title>
+</head>
+<body>
+
+    <!-- Barra de navegación -->
+    <div class="navbar">
+        <span class="logo-name">YON'S</span>
+        <a class="link-nav-bar" href="#contacto">Contact</a>
+        <a class="link-nav-bar" href="#servicios">Service</a>
+        <a class="link-nav-bar" href="about-us.html">About us</a>
+        <a class="link-nav-bar" href="home.html">Home</a>
+    </div>
+
+    <!-- Contenido principal -->
+    <h1 class="title__saved-notes">My notes</h1>
+
+    <!-- Container donde se almacenan los formularios -->
+    <div class="btn-kill">
+        <button id="borrarSeleccionadas">Delete selected notes</button>
+    </div>
+
+    <div class="container_saved-notes">
+        <div id="saved-notes"></div>
+    </div>
+    
+</body>
+</html>
+
+<script>
+    // Recuperar las notas guardadas desde localStorage
+    var notasGuardadas = JSON.parse(localStorage.getItem('notas')) || [];
+
+    // Obtener el contenedor donde se mostrarán las notas
+    var savedNotesContainer = document.getElementById("saved-notes");
+
+    // Recorrer las notas y mostrarlas en el contenedor
+    notasGuardadas.forEach(function (nota) {
+        var noteElement = document.createElement("div");
+        noteElement.className = "saved-note";
+        noteElement.innerHTML = "<h2>" + nota.titulo + "</h2><p>" + nota.descripcion + "</p><p>Date: " + nota.fecha + "</p><p>Finished work: " + nota.finalizado + "</p>";
+        
+        // Agregar el elemento de nota al contenedor
+        savedNotesContainer.appendChild(noteElement);
+    });
+
+
+    // Recuperar las notas guardadas desde localStorage
+var notasGuardadas = JSON.parse(localStorage.getItem('notas')) || [];
+
+// Obtener el contenedor donde se mostrarán las notas
+var savedNotesContainer = document.getElementById("saved-notes");
+
+// Función para mostrar las notas con casillas de verificación
+function mostrarNotas() {
+    savedNotesContainer.innerHTML = ""; // Limpiar el contenedor
+
+    // Recorrer las notas y mostrarlas con casillas de verificación
+    notasGuardadas.forEach(function (nota, index) {
+        var noteElement = document.createElement("div");
+        noteElement.className = "saved-note";
+
+            if(nota.finalizado==false){
+                noteElement.innerHTML = `
+            <input type="checkbox" id="checkbox${index}" class="nota-checkbox">
+            <label for="checkbox${index}">
+                <h2>${nota.titulo}</h2>
+                <p>${nota.descripcion}</p>
+                <p>Date: ${nota.fecha}</p>
+                <p>Finished work: NO</p>
+            </label>
+        `;
+            }else{
+                noteElement.innerHTML = `
+            <input type="checkbox" id="checkbox${index}" class="nota-checkbox">
+            <label for="checkbox${index}">
+                <h2>${nota.titulo}</h2>
+                <p>${nota.descripcion}</p>
+                <p>Date: ${nota.fecha}</p>
+                <p>Finished work: YES</p>
+            </label>
+        `;
+            }
+
+        // Agregar el elemento de nota al contenedor
+        savedNotesContainer.appendChild(noteElement);
+    });
+}
+
+// Llamar a la función para mostrar las notas inicialmente
+mostrarNotas();
+
+// Lógica para borrar las notas que necesitemos eliminar
+
+// Agregar un evento clic al botón "Borrar Notas Seleccionadas"
+var borrarSeleccionadasButton = document.getElementById("borrarSeleccionadas");
+borrarSeleccionadasButton.addEventListener("click", function () {
+    // Obtener todas las casillas de verificación
+    var checkboxes = document.querySelectorAll(".nota-checkbox");
+
+    // Recorrer las casillas de verificación y borrar las notas seleccionadas
+    for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            // Borrar la nota correspondiente del array
+            notasGuardadas.splice(i, 1);
+        }
+    }
+
+    // Guardar el array actualizado en localStorage
+    localStorage.setItem('notas', JSON.stringify(notasGuardadas));
+
+    // Volver a mostrar las notas después de borrar
+    mostrarNotas();
+});
+
+</script>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Kiara María Orellana Yón">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=DM+Serif+Display:ital@1&family=Noto+Serif&family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Saved notes</title>
+</head>
+<body>
+
+    <!-- Barra de navegación -->
+    <div class="navbar">
+        <span class="logo-name">YON'S</span>
+    </div>
+
+    <!-- Contenido principal -->
+    <h1 class="title__saved-notes">Saved accounts</h1>
+
+    <div id="display-data">
+        <!-- Aquí se mostrarán los datos almacenados -->
+    </div>
+    <div class="user-data">
+        <!-- Botón para eliminar usuario -->
+    </div>
+    <a href="index.html">Volver a la página de inicio</a>
+    
+</body>
+</html>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    // Recupera la lista de datos de usuarios del almacenamiento local
+    const userListJSON = localStorage.getItem('userList');
+    const userList = userListJSON ? JSON.parse(userListJSON) : [];
+
+    const displayDataContainer = document.getElementById('display-data');
+
+    if (userList.length > 0) {
+        // Muestra todos los conjuntos de datos en la página
+        userList.forEach(function (userData, index) {
+            const userContainer = document.createElement('div');
+            userContainer.className = 'user-data';
+
+            userContainer.innerHTML = `
+                <h2>Usuario ${index + 1}</h2>
+                <p>Nombre: ${userData.name}</p>
+                <p>Email: ${userData.email}</p>
+                <p>Contraseña: ${userData.password}</p>
+            `;
+
+            const deleteButton = document.createElement('button');
+            deleteButton.className = 'delete-button';
+            deleteButton.textContent = 'Eliminar Usuario';
+            deleteButton.setAttribute('data-index', index);
+
+            deleteButton.addEventListener('click', function () {
+                // Obtén el índice del usuario a eliminar
+                const userIndex = parseInt(this.getAttribute('data-index'));
+
+                // Elimina el usuario de la lista
+                userList.splice(userIndex, 1);
+
+                // Actualiza la lista en localStorage
+                localStorage.setItem('userList', JSON.stringify(userList));
+
+                // Vuelve a cargar la página para reflejar los cambios
+                location.reload();
+            });
+
+            userContainer.appendChild(deleteButton);
+            displayDataContainer.appendChild(userContainer);
+        });
+    } else {
+        displayDataContainer.innerHTML = '<p>No hay datos almacenados.</p>';
+    }
+});
+
+</script>
